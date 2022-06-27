@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "front-320409": {
+      "hosting": {
+        "app": [
+          "front-320409"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "front-320409"
+  }
+}

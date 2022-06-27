@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar slot="start" color="primary">
+    <ion-title>Web stories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list> 
+    <ion-item *ngFor="let course of courses" [routerLink]="['./', course.id]">
+      <ion-avatar slot="start">
+        <ion-img [src]="course?.imgUrl"></ion-img>
+      </ion-avatar>
+      <ion-label>{{ course?.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
