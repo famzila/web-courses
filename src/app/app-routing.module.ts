@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { CanLoadGuard } from './core/auth/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'auth',
+    redirectTo: 'courses',
     pathMatch: 'full'
   },
   { path: 'auth', loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthPageModule) },
@@ -13,11 +14,13 @@ const routes: Routes = [
     children: [
         {
           path: '',
-          loadChildren: () => import('./courses/courses.module').then( m => m.CoursesPageModule)
+          loadChildren: () => import('./courses/courses.module').then( m => m.CoursesPageModule),
+          canLoad: [CanLoadGuard]
         },
         {
           path: ':id',
-          loadChildren: () => import('./courses/course-detail/course-detail.module').then( m => m.CourseDetailPageModule)
+          loadChildren: () => import('./courses/course-detail/course-detail.module').then( m => m.CourseDetailPageModule),
+          canLoad: [CanLoadGuard]
         }
     ]
   },

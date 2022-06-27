@@ -31,6 +31,10 @@ export class AuthService {
 		})
 	}
 
+	getCurrentUser(){
+		return this.currentUser;
+	}
+
 	userIsAuthenticated() {
 		if (getAuth().currentUser) {
 			return true;
@@ -51,7 +55,7 @@ export class AuthService {
 	 logout() {
 		return this.ngFireAuth.signOut().then(() => {
 		  localStorage.removeItem('user');
-		  this.router.navigate(['login']);
+		  this.router.navigate(['auth']);
 		});
 	  }
 

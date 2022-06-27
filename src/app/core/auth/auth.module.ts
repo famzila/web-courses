@@ -7,9 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { AuthPageRoutingModule } from './auth-routing.module';
 
 import { AuthPage } from './auth.page';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire/compat';
+import { CanLoadGuard } from './auth.guard';
+import { AuthService } from './auth.service';
 
 @NgModule({
   imports: [
@@ -18,6 +17,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     IonicModule,
     AuthPageRoutingModule,
   ],
-  declarations: [AuthPage]
+  declarations: [AuthPage],
+  providers: [CanLoadGuard, AuthService]
 })
 export class AuthPageModule {}
